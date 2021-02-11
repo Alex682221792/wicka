@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kmello/controller/MainTabBarController.dart';
-import 'package:kmello/model/MenuItem.dart';
-import 'package:kmello/resources/styles/decorations.dart';
-import 'package:kmello/resources/styles/gradients.dart';
+import 'package:wicka/controller/MainTabBarController.dart';
+import 'package:wicka/model/MenuItem.dart';
+import 'package:wicka/resources/styles/decorations.dart';
+import 'package:wicka/resources/styles/gradients.dart';
 
 class MainTabBar extends StatelessWidget {
   final MainTabBarController _controller = Get.put(MainTabBarController());

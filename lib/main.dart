@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kmello/resources/values/colors.dart';
-import 'package:kmello/resources/values/strings.dart';
-import 'package:kmello/view/pages/HomeScreen.dart';
-import 'package:kmello/view/pages/LoginScreen.dart';
-import 'package:kmello/view/pages/SignUpScreen.dart';
-import 'package:kmello/view/pages/WizardWorkerScreen.dart';
+import 'package:wicka/resources/values/colors.dart';
+import 'package:wicka/resources/values/strings.dart';
+import 'package:wicka/view/pages/HomeScreen.dart';
+import 'package:wicka/view/pages/LoginScreen.dart';
+import 'package:wicka/view/pages/SignUpScreen.dart';
+import 'package:wicka/view/pages/WizardWorkerScreen.dart';
 import 'view/pages/SplashScreen.dart';
 
 void main() {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colores.primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: WizardWorkerScreen(),
+      home: HomeScreen(),
     );
   }
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kmello/model/DropdownItem.dart';
-import 'package:kmello/model/ServicePrice.dart';
-import 'package:kmello/resources/styles/text-styles.dart';
-import 'package:kmello/resources/values/strings.dart';
-import 'package:kmello/view/widgets/BasicActions.dart';
-import 'package:kmello/view/widgets/DropDownBottomList.dart';
-import 'package:kmello/view/widgets/ServiceRow.dart';
+import 'package:wicka/model/DropdownItem.dart';
+import 'package:wicka/model/ServicePrice.dart';
+import 'package:wicka/resources/styles/text-styles.dart';
+import 'package:wicka/resources/values/strings.dart';
+import 'package:wicka/view/widgets/BasicActions.dart';
+import 'package:wicka/view/widgets/DropDownBottomList.dart';
+import 'package:wicka/view/widgets/ServiceRow.dart';
 
 class WizWorkerSkills extends StatefulWidget {
   double height = 0.0;

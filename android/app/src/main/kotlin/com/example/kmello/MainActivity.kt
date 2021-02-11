@@ -1,4 +1,4 @@
-package com.example.kmello
+package com.encodingideas.wicka
 
 import io.flutter.embedding.android.FlutterActivity
 

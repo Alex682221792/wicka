@@ -6,4 +6,7 @@ class Dimens {
   static double lgButtonWidth(BuildContext context) {
     return MediaQuery.of(context).size.width * 0.7;
   }
+
+  static EdgeInsets padding10_5 =
+      EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0);
 }

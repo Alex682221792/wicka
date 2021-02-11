@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kmello/resources/values/colors.dart';
-import 'package:kmello/resources/values/strings.dart';
+import 'package:wicka/resources/values/colors.dart';
+import 'package:wicka/resources/values/strings.dart';
 
 class StepItem extends StatelessWidget {
   IconData icon;

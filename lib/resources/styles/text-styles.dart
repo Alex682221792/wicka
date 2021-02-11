@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kmello/resources/values/colors.dart';
+import 'package:wicka/resources/values/colors.dart';
 
 class TextStyles {
   static TextStyle signatureEncIdeasStyle = TextStyle(
@@ -39,12 +39,41 @@ class TextStyles {
   static TextStyle mainGradientButtonStyle =
       TextStyle(color: Colors.white, fontSize: 15.0);
 
-  static TextStyle headerStyle =
-      TextStyle(color: Colores.primaryBackground, fontSize: 15.0);
+  static TextStyle headerStyle = TextStyle(
+      color: Colores.tertiary, fontSize: 17.0, fontWeight: FontWeight.bold);
+
+  static TextStyle superTitleStyle = TextStyle(
+      color: Colores.tertiary, fontSize: 25.0, fontWeight: FontWeight.bold);
+
+  static TextStyle paymentMethodTitleStyle = TextStyle(
+      color: Colores.primaryBackground, fontSize: 30.0, fontWeight: FontWeight.bold);
+
+  static TextStyle subHeaderStyle =
+      TextStyle(color: Colores.inactive, fontSize: 14.0);
+
+  static TextStyle addButtonStyle =
+      TextStyle(color: Colores.primaryBackground, fontSize: 14.0);
+
+  static TextStyle sliderTitleStyle = TextStyle(
+      color: Colores.inactive, fontSize: 16.0, fontWeight: FontWeight.w600);
 
   static TextStyle sectionTitleStyle =
       TextStyle(color: Colores.tertiary, fontSize: 15.0);
 
+  static TextStyle labelViewTitleStyle = TextStyle(
+      color: Colores.tertiary, fontSize: 15.0, fontWeight: FontWeight.bold);
+
+  static TextStyle productPriceTitleStyle = TextStyle(
+      color: Colores.primary, fontSize: 25.0, fontWeight: FontWeight.bold);
+
   static TextStyle normalStyle =
       TextStyle(color: Colores.tertiary, fontSize: 17.0);
+
+  static TextStyle whiteTextStyle = TextStyle(
+      color: Colores.primaryBackground,
+      fontSize: 17.0,
+      fontWeight: FontWeight.bold);
+
+  static TextStyle whiteLightTextStyle =
+      TextStyle(color: Colores.primaryBackground, fontSize: 17.0);
 }

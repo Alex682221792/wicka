@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kmello/resources/styles/gradients.dart';
-import 'package:kmello/resources/values/colors.dart';
-import 'package:kmello/view/fragments/WizWorkerFinancial.dart';
-import 'package:kmello/view/fragments/WizWorkerIntroduction.dart';
-import 'package:kmello/view/fragments/WizWorkerLocation.dart';
-import 'package:kmello/view/fragments/WizWorkerNotifications.dart';
-import 'package:kmello/view/fragments/WizWorkerSkills.dart';
-import 'package:kmello/view/widgets/ClipperSignUp.dart';
-import 'package:kmello/view/widgets/StepItem.dart';
+import 'package:wicka/resources/styles/gradients.dart';
+import 'package:wicka/resources/values/colors.dart';
+import 'package:wicka/view/fragments/WizWorkerFinancial.dart';
+import 'package:wicka/view/fragments/WizWorkerIntroduction.dart';
+import 'package:wicka/view/fragments/WizWorkerLocation.dart';
+import 'package:wicka/view/fragments/WizWorkerNotifications.dart';
+import 'package:wicka/view/fragments/WizWorkerSkills.dart';
+import 'package:wicka/view/widgets/ClipperSignUp.dart';
+import 'package:wicka/view/widgets/StepItem.dart';
 
 class WizardWorkerScreen extends StatefulWidget {
   @override

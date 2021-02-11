@@ -2,21 +2,24 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kmello/controller/MainTabBarController.dart';
-import 'package:kmello/model/MenuItem.dart';
-import 'package:kmello/resources/styles/decorations.dart';
-import 'package:kmello/resources/values/colors.dart';
-import 'package:kmello/view/widgets/CircleButton.dart';
+import 'package:wicka/controller/MainTabBarController.dart';
+import 'package:wicka/model/MenuItem.dart';
+import 'package:wicka/resources/fonts/my_flutter_app_icons.dart';
+import 'package:wicka/resources/styles/decorations.dart';
+import 'package:wicka/resources/values/colors.dart';
+import 'package:wicka/view/widgets/CircleButton.dart';
 
 class BottomTabBar extends StatelessWidget {
-  final MainTabBarController _controller = Get.put(MainTabBarController());
+  MainTabBarController controller = Get.put(MainTabBarController());
+
+  BottomTabBar({this.controller});
 
   @override
   Widget build(BuildContext context) {
-    _controller.loadMenu();
+    // controller.loadMenu();
     return Positioned(
         height: 60.0,
-        bottom: 0.0,
+        bottom: 5.0,
         child: Stack(children: [
           Align(
               alignment: Alignment.bottomCenter,
@@ -27,11 +30,14 @@ class BottomTabBar extends StatelessWidget {
           Container(
             height: 60.0,
             child: Obx(() => ListView.builder(
+                  key: Key(controller.items
+                      .firstWhere((element) => element.isSelected)
+                      .id),
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: _controller.items.length,
+                  itemCount: controller.items.length,
                   itemBuilder: (context, index) =>
-                      renderMenuItem(_controller.items[index], context),
+                      renderMenuItem(controller.items[index], context),
                 )),
           )
         ]));
@@ -40,23 +46,39 @@ class BottomTabBar extends StatelessWidget {
   Widget renderMenuItem(MenuItem item, BuildContext context) {
     if (item.isMain) {
       return SizedBox(
-          width: MediaQuery.of(context).size.width / _controller.items.length,
+          width: MediaQuery.of(context).size.width / controller.items.length,
           child: CircleButton(
               size: 60.0,
               onPress: () {},
-              colorButton: Colores.primaryBackground,
+              colorButton: Colores.primary,
               colorIcon: Colores.primary,
-              icon: Icons.local_fire_department));
+              icon: LogoKmello.logo_kmello));
     } else {
       return Align(
           alignment: Alignment.bottomCenter,
-          child: SizedBox(
+          child: Container(
+              decoration: BoxDecoration(
+                  border: Border(
+                      top: BorderSide(
+                          color: item.isSelected
+                              ? Colores.primary
+                              : Colors.transparent,
+                          width: 2.0))),
               height: 40.0,
               width:
-                  MediaQuery.of(context).size.width / _controller.items.length,
+                  MediaQuery.of(context).size.width / controller.items.length,
               child: FlatButton(
-                  onPressed: () {},
-                  child: Icon(item.icon, color: Colors.white))));
+                  onPressed: () {
+                    this.controller.selectOption(item);
+                  },
+                  child: Icon(item.icon,
+                      color: !item.isSelected
+                          ? Colores.secondary
+                          : Colores.primary))));
     }
+  }
+
+  MainTabBarController getController() {
+    return this.controller;
   }
 }

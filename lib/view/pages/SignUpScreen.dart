@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kmello/controller/LoginController.dart';
-import 'package:kmello/resources/styles/decorations.dart';
-import 'package:kmello/resources/styles/gradients.dart';
-import 'package:kmello/resources/styles/text-styles.dart';
-import 'package:kmello/resources/values/colors.dart';
-import 'package:kmello/resources/values/dimens.dart';
-import 'package:kmello/view/widgets/BasicBackButton.dart';
-import 'package:kmello/view/widgets/ClipperSignUp.dart';
-import 'package:kmello/view/widgets/LargeTextButton.dart';
+import 'package:wicka/controller/LoginController.dart';
+import 'package:wicka/resources/styles/decorations.dart';
+import 'package:wicka/resources/styles/gradients.dart';
+import 'package:wicka/resources/styles/text-styles.dart';
+import 'package:wicka/resources/values/colors.dart';
+import 'package:wicka/resources/values/dimens.dart';
+import 'package:wicka/view/widgets/BasicBackButton.dart';
+import 'package:wicka/view/widgets/ClipperSignUp.dart';
+import 'package:wicka/view/widgets/LargeTextButton.dart';
 
 class SignUpScreen extends StatelessWidget {
   final LoginController _loginController = Get.put(LoginController());

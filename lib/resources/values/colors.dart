@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Colores {
 //  static Color primaryBackground = Colors.grey[900];
   static Color primaryBackground = Colors.white;
+  static Color alternativeBackground = Colors.grey[100];
 
   static Color primary = Colors.orange[600];
   static Color secondary = Colors.orange[300];

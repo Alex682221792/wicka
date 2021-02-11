@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kmello/controller/LoginController.dart';
-import 'package:kmello/resources/styles/decorations.dart';
-import 'package:kmello/resources/styles/gradients.dart';
-import 'package:kmello/resources/styles/text-styles.dart';
-import 'package:kmello/resources/values/colors.dart';
-import 'package:kmello/resources/values/dimens.dart';
-import 'package:kmello/view/widgets/LargeTextButton.dart';
+import 'package:wicka/controller/LoginController.dart';
+import 'package:wicka/resources/styles/decorations.dart';
+import 'package:wicka/resources/styles/gradients.dart';
+import 'package:wicka/resources/styles/text-styles.dart';
+import 'package:wicka/resources/values/colors.dart';
+import 'package:wicka/resources/values/dimens.dart';
+import 'package:wicka/view/widgets/ClipperSignIn.dart';
+import 'package:wicka/view/widgets/ClipperSignUp.dart';
+import 'package:wicka/view/widgets/LargeTextButton.dart';
 import '../widgets/WaveWidget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -23,22 +25,24 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: Colores.primaryBackground,
       body: Stack(
         children: <Widget>[
-          Container(
-            height: size.height - 100,
-            color: Colores.primaryBackground,
-          ),
           AnimatedPositioned(
             duration: Duration(milliseconds: 500),
             curve: Curves.easeOutQuad,
-            top: keyboardOpen ? -size.height / 3.7 : 0.0,
-            child: Hero(
-                tag: 'waves-1',
-                child: WaveWidget(
-                  size: size,
-                  yOffset: size.height * 0.95,
-                  color: null,
-                  gradient: Gradients.wavesGradient,
-                )),
+            top: keyboardOpen ? -0.0 : 0.0,
+            child: ClipPath(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.2,
+                color: Colores.alternativeBackground,
+                child: Image.asset(
+                  "assets/bg_signin.jpg",
+                  width: MediaQuery.of(context).size.width,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              clipper: ClipperSignIn(),
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height,
@@ -53,7 +57,8 @@ class LoginScreen extends StatelessWidget {
                         Center(
                             child: Hero(
                                 tag: 'logo',
-                                child: Image.asset("assets/iso_kmello.png"))),
+                                child: Image.asset("assets/logo_wicka.png",
+                                    height: 150))),
                         SizedBox(height: 40.0),
                         Text('Iniciar Sesión', style: TextStyles.titleStyle),
                         SizedBox(height: 20.0),

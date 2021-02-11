@@ -1,28 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kmello/model/MenuItem.dart';
+import 'package:wicka/model/MenuItem.dart';
+import 'package:wicka/view/fragments/Finder.dart';
+import 'package:wicka/view/fragments/MyCart.dart';
+import 'package:wicka/view/fragments/Orders.dart';
+import 'package:wicka/view/fragments/ProfileFragment.dart';
 
 class MainTabBarController extends GetxController {
   var items = List<MenuItem>().obs;
 
   void loadMenu() {
     items.clear();
+    print("loading data:::::");
     items.add(MenuItem(
-        id: "opt_0", label: "Perfil", icon: Icons.person, isMain: false));
+        id: "opt_home",
+        label: "Home",
+        icon: Icons.home,
+        isMain: false,
+        isSelected: true,
+        widget: Finder()));
     items.add(MenuItem(
-        id: "opt_1", label: "Cliente", icon: Icons.face, isMain: false));
+        id: "opt_profile", label: "Perfil", icon: Icons.person, isMain: false,
+      widget: ProfileFragment()));
     items.add(MenuItem(
-        id: "opt_4",
-        label: "Configuraciones",
-        icon: Icons.settings,
-        isMain: true));
+        id: "opt_history",
+        label: "Mis Pedidos",
+        icon: Icons.fact_check,
+        isMain: false,
+        widget: Orders()));
     items.add(MenuItem(
-        id: "opt_2", label: "Kmellador", icon: Icons.handyman, isMain: false));
-    items.add(MenuItem(
-        id: "opt_3",
-        label: "Balance",
-        icon: Icons.attach_money,
-        isMain: false));
+        id: "opt_cart",
+        label: "Carrito",
+        icon: Icons.shopping_cart,
+        isMain: false,
+        widget: MyCart()));
     update();
+  }
+
+  void selectOption(MenuItem item) {
+    this.items.forEach((element) {
+      element.isSelected = false;
+    });
+    var index = this.items.indexOf(item);
+    this.items[index].isSelected = true;
+    items.refresh();
+  }
+
+  MenuItem chosenOption() {
+    print("chossenoptions:::: $items");
+    return this
+        .items
+        .firstWhere((element) => element.isSelected, orElse: () => null);
   }
 }

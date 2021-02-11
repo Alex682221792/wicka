@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:kmello/resources/styles/text-styles.dart';
+import 'package:wicka/resources/styles/text-styles.dart';
 
 class Section extends StatelessWidget {
   String title;

@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kmello/resources/styles/gradients.dart';
-import 'package:kmello/resources/styles/text-styles.dart';
-import 'package:kmello/resources/values/colors.dart';
-import 'package:kmello/resources/values/strings.dart';
-import 'package:kmello/view/pages/LoginScreen.dart';
+import 'package:wicka/resources/styles/decorations.dart';
+import 'package:wicka/resources/styles/text-styles.dart';
+import 'package:wicka/resources/values/colors.dart';
+import 'package:wicka/resources/values/strings.dart';
+import 'package:wicka/view/pages/LoginScreen.dart';
 import '../widgets/WaveWidget.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -20,28 +20,17 @@ class SplashScreen extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           Container(
-            height: size.height - 100,
-            color: Colores.primaryBackground,
-          ),
-          AnimatedPositioned(
-            duration: Duration(milliseconds: 500),
-            curve: Curves.easeOutQuad,
-            top: keyboardOpen ? -size.height / 3.7 : 0.0,
-            child: Hero(
-                tag: 'waves',
-                child: WaveWidget(
-                  size: size,
-                  yOffset: size.height * 0.65,
-                  color: null,
-                  gradient: Gradients.wavesGradient,
-                )),
+            height: size.height,
+            decoration: Decorations.tabBarShadow,
           ),
           Padding(
             padding: const EdgeInsets.only(top: 100.0, left: 15.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Hero(tag: 'logo', child: Image.asset("assets/logo_kmello.png"))
+                Hero(
+                    tag: 'logo',
+                    child: Image.asset("assets/logo_wicka_white.png"))
               ],
             ),
           ),
@@ -54,7 +43,7 @@ class SplashScreen extends StatelessWidget {
                 ),
                 Center(
                     child: Text(
-                  Strings.slogan,
+                  "",
                   style: TextStyles.sloganStyle,
                 )),
                 Column(

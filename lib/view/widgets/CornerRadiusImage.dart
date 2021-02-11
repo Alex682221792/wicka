@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kmello/view/widgets/ImageViewer.dart';
+import 'package:wicka/view/widgets/ImageViewer.dart';
 
 class CornerRadiusImage extends StatelessWidget {
   String _url;

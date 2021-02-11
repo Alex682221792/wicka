@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kmello/enums/ButtonStyleEnum.dart';
-import 'package:kmello/resources/values/strings.dart';
-import 'package:kmello/view/widgets/LargeTextButton.dart';
+import 'package:wicka/enums/ButtonStyleEnum.dart';
+import 'package:wicka/resources/values/strings.dart';
+import 'package:wicka/view/widgets/LargeTextButton.dart';
 
 class BasicActionsButton extends StatelessWidget {
   VoidCallback onStepContinue;

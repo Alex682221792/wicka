@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kmello/enums/ButtonStyleEnum.dart';
-import 'package:kmello/resources/styles/decorations.dart';
-import 'package:kmello/resources/styles/gradients.dart';
-import 'package:kmello/resources/styles/text-styles.dart';
-import 'package:kmello/resources/values/dimens.dart';
+import 'package:wicka/enums/ButtonStyleEnum.dart';
+import 'package:wicka/resources/styles/decorations.dart';
+import 'package:wicka/resources/styles/gradients.dart';
+import 'package:wicka/resources/styles/text-styles.dart';
+import 'package:wicka/resources/values/dimens.dart';
 
 class LargeTextButton extends StatelessWidget {
   Color colorButton;

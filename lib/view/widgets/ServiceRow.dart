@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kmello/model/DropdownItem.dart';
-import 'package:kmello/model/ServicePrice.dart';
-import 'package:kmello/resources/styles/text-styles.dart';
-import 'package:kmello/resources/values/colors.dart';
-import 'package:kmello/view/widgets/BasicActions.dart';
-import 'package:kmello/view/widgets/CircleButton.dart';
+import 'package:wicka/model/DropdownItem.dart';
+import 'package:wicka/model/ServicePrice.dart';
+import 'package:wicka/resources/styles/text-styles.dart';
+import 'package:wicka/resources/values/colors.dart';
+import 'package:wicka/view/widgets/BasicActions.dart';
+import 'package:wicka/view/widgets/CircleButton.dart';
 
 class ServiceRow extends StatefulWidget {
   Color background;

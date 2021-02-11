@@ -5,6 +5,14 @@ class MenuItem {
   String label;
   String id;
   bool isMain;
+  bool isSelected;
+  Widget widget;
 
-  MenuItem({this.id, this.label, this.icon, this.isMain});
+  MenuItem(
+      {this.id,
+      this.label,
+      this.icon,
+      this.isMain,
+      this.isSelected = false,
+      this.widget});
 }

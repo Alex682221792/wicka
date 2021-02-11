@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kmello/resources/styles/decorations.dart';
-import 'package:kmello/resources/styles/text-styles.dart';
-import 'package:kmello/resources/values/colors.dart';
-import 'package:kmello/view/widgets/CircleButton.dart';
+import 'package:wicka/resources/styles/decorations.dart';
+import 'package:wicka/resources/styles/text-styles.dart';
+import 'package:wicka/resources/values/colors.dart';
+import 'package:wicka/view/widgets/CircleButton.dart';
 
 class TopBar extends StatelessWidget {
   @override
@@ -11,7 +11,7 @@ class TopBar extends StatelessWidget {
     return Positioned(
       width: MediaQuery.of(context).size.width * 0.95,
       height: 40.0,
-      top: 20.0,
+      top: 40.0,
       left: MediaQuery.of(context).size.width * 0.025,
       child: Container(
           width: MediaQuery.of(context).size.width * 0.9,
@@ -21,29 +21,22 @@ class TopBar extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              Image.asset("assets/logo_wicka.png", height: 40),
               Expanded(
                   child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.0),
-                      child: Text("Header", style: TextStyles.headerStyle))),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("buen día", style: TextStyles.subHeaderStyle),
+                          Text("Alexander", style: TextStyles.headerStyle)
+                        ],
+                      ))),
               CircleButton(
-                colorIcon: Colores.primaryBackground,
+                colorIcon: Colores.tertiary,
                 colorButton: Colors.transparent,
                 size: 40.0,
                 icon: Icons.notifications,
-                onPress: () {},
-              ),
-              CircleButton(
-                colorIcon: Colores.primaryBackground,
-                colorButton: Colors.transparent,
-                size: 40.0,
-                icon: Icons.chat,
-                onPress: () {},
-              ),
-              CircleButton(
-                colorIcon: Colores.primary,
-                colorButton: Colors.transparent,
-                size: 40.0,
-                icon: Icons.more_vert,
                 onPress: () {},
               )
             ],

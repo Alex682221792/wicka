@@ -18,6 +18,9 @@ class Strings {
   //titles
   static String profile = 'Perfil';
   static String basicInfo = 'Información Básica';
+  //contracts
+  static String contractsDescription = "Revisa tus contratos más recientes.";
+
   //wizzard worker
   static String selectService = "Selecciona un servicio";
   static String notificationsStep =

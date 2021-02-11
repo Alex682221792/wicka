@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kmello/view/widgets/CircleButton.dart';
+import 'package:wicka/view/widgets/CircleButton.dart';
 
 class ImageViewer extends StatelessWidget {
   String urlImg;

@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:kmello/controller/FinancialInformationController.dart';
-import 'package:kmello/resources/styles/decorations.dart';
-import 'package:kmello/resources/styles/text-styles.dart';
-import 'package:kmello/resources/values/colors.dart';
-import 'package:kmello/resources/values/dimens.dart';
-import 'package:kmello/resources/values/strings.dart';
-import 'package:kmello/view/widgets/BasicActions.dart';
-import 'package:kmello/view/widgets/CornerRadiusImage.dart';
-import 'package:kmello/view/widgets/DropDownBottomList.dart';
+import 'package:wicka/controller/FinancialInformationController.dart';
+import 'package:wicka/resources/styles/decorations.dart';
+import 'package:wicka/resources/styles/text-styles.dart';
+import 'package:wicka/resources/values/colors.dart';
+import 'package:wicka/resources/values/dimens.dart';
+import 'package:wicka/resources/values/strings.dart';
+import 'package:wicka/view/widgets/BasicActions.dart';
+import 'package:wicka/view/widgets/CornerRadiusImage.dart';
+import 'package:wicka/view/widgets/DropDownBottomList.dart';
 
 class WizWorkerLocation extends StatefulWidget {
   double height = 0.0;
