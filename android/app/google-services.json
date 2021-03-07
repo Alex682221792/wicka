@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "963169733788",
+    "firebase_url": "https://wicka-ei-default-rtdb.firebaseio.com",
+    "project_id": "wicka-ei",
+    "storage_bucket": "wicka-ei.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963169733788:android:7f1f0e1a6287b9fbb3b159",
+        "android_client_info": {
+          "package_name": "com.encodingideas.wicka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963169733788-jteh389390lcmm92tqlm4ugva3i6ifii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtNCOHxvhxxcl3GopDiPgfeq-H4LIkUd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963169733788-jteh389390lcmm92tqlm4ugva3i6ifii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

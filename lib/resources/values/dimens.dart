@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class Dimens {
+  static double radiusButtons = 20;
   static double spaceBetweenFields = 20;
   static double lgButtonHeight = 40;
   static double lgButtonWidth(BuildContext context) {

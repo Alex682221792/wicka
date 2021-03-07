@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wicka/controller/LoginController.dart';
+import 'package:wicka/controller/SignUpController.dart';
 import 'package:wicka/resources/styles/decorations.dart';
-import 'package:wicka/resources/styles/gradients.dart';
 import 'package:wicka/resources/styles/text-styles.dart';
 import 'package:wicka/resources/values/colors.dart';
 import 'package:wicka/resources/values/dimens.dart';
@@ -12,7 +11,7 @@ import 'package:wicka/view/widgets/ClipperSignUp.dart';
 import 'package:wicka/view/widgets/LargeTextButton.dart';
 
 class SignUpScreen extends StatelessWidget {
-  final LoginController _loginController = Get.put(LoginController());
+  final SignUpController _signUpController = Get.put(SignUpController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,21 +24,17 @@ class SignUpScreen extends StatelessWidget {
           AnimatedPositioned(
             duration: Duration(milliseconds: 500),
             curve: Curves.easeOutQuad,
-            top: keyboardOpen ? -size.height / 3.7 : 0.0,
+            top: keyboardOpen ? -50 : 0.0,
             child: ClipPath(
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.2,
-                decoration: BoxDecoration(gradient: Gradients.wavesGradient),
-                child: Column(
-                  children: [
-                    SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.025),
-                    Center(
-                        child: Hero(
-                            tag: 'logo',
-                            child: Image.asset("assets/iso_kmello_white.png")))
-                  ],
+                color: Colores.alternativeBackground,
+                child: Image.asset(
+                  "assets/bg_signin.jpg",
+                  width: MediaQuery.of(context).size.width,
+                  height: 200,
+                  fit: BoxFit.cover,
                 ),
               ),
               clipper: ClipperSignUp(),
@@ -51,8 +46,11 @@ class SignUpScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (keyboardOpen)
-                  Center(child: Image.asset("assets/iso_kmello.png")),
+                Center(
+                    child: Hero(
+                        tag: 'logo',
+                        child: Image.asset("assets/logo_wicka.png",
+                            height: keyboardOpen ? 80 : 150))),
                 SizedBox(
                     height: Dimens.spaceBetweenFields *
                         (keyboardOpen ? 1.75 : 3.5)),
@@ -60,7 +58,7 @@ class SignUpScreen extends StatelessWidget {
                 SizedBox(height: 20.0),
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
-                  controller: this._loginController.usernameController,
+                  controller: this._signUpController.usernameController,
                   style: TextStyles.textFieldStyle,
                   cursorColor: Colores.primary,
                   decoration: Decorations.basicInputDecoration(label: "Nombre"),
@@ -68,7 +66,7 @@ class SignUpScreen extends StatelessWidget {
                 SizedBox(height: Dimens.spaceBetweenFields),
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
-                  controller: this._loginController.usernameController,
+                  controller: this._signUpController.emailController,
                   style: TextStyles.textFieldStyle,
                   cursorColor: Colores.primary,
                   decoration: Decorations.basicInputDecoration(label: "Email"),
@@ -77,7 +75,7 @@ class SignUpScreen extends StatelessWidget {
                 TextFormField(
                   keyboardType: TextInputType.text,
                   obscureText: true,
-                  controller: this._loginController.passwordController,
+                  controller: this._signUpController.passwordController,
                   style: TextStyles.textFieldStyle,
                   cursorColor: Colores.primary,
                   decoration:
@@ -90,13 +88,17 @@ class SignUpScreen extends StatelessWidget {
                   child: LargeTextButton(
                     colorButton: Colores.primary,
                     text: "Registrarme",
-                    onPress: () {},
+                    onPress: () {
+                      this._signUpController.sendRegister();
+                    },
                   ),
                 )
               ],
             ),
           )),
-          BasicBackButton(onPress: () {})
+          BasicBackButton(onPress: () {
+            Get.back();
+          })
         ]));
   }
 }

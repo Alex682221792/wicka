@@ -1,15 +1,13 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:wicka/api/services/UserAPI.dart';
-import 'package:wicka/controller/BaseContoller.dart';
-import 'package:wicka/logic/SignInLogic.dart';
+import 'package:wicka/logic/SignUpLogic.dart';
 import 'package:wicka/model/User.dart';
+import 'package:wicka/resources/values/colors.dart';
 import 'package:wicka/resources/values/strings.dart';
-import 'package:wicka/shared_preferences/SessionUserSP.dart';
 import 'package:wicka/utils/ValidatorsUtils.dart';
 import 'package:wicka/view/pages/HomeScreen.dart';
 
-class LoginController extends BaseController {
+class SignUpController extends GetxController {
   TextEditingController usernameController;
   TextEditingController emailController;
   TextEditingController passwordController;
@@ -22,27 +20,32 @@ class LoginController extends BaseController {
     super.onInit();
   }
 
-  void signInEmailPassword() async {
+  void sendRegister() async {
     if (!validateForm()) {
       return;
     }
     Get.dialog(Center(child: CircularProgressIndicator()),
         barrierDismissible: false);
-    SignInLogic().signIn(emailController.text, passwordController.text,
-        () async {
-      SessionUserSP().setLoggedUser(await UserAPI().getProfile());
-      Get.back();
-      Get.off(HomeScreen());
-      errorSnackbar(msg: "Logged");
-    }, () {
-      Get.back();
-      errorSnackbar(msg: Strings.errorHint);
-    });
+    var user = User(
+        email: emailController.text,
+        name: usernameController.text,
+        password: passwordController.text);
+    SignUpLogic().createAccount(
+      client: user,
+      onSuccess: () {
+        Get.back();
+        Get.off(HomeScreen());
+      },
+      onFailure: () {
+        Get.back();
+        Get.dialog(Center(child: Text("Error")), barrierDismissible: true);
+      },
+    );
   }
 
   bool validateForm() {
     if (!ValidatorsUtils.areFilledFields(
-        [emailController, passwordController])) {
+        [emailController, passwordController, usernameController])) {
       errorSnackbar(msg: Strings.requiredFields);
       return false;
     }
@@ -53,8 +56,12 @@ class LoginController extends BaseController {
     return true;
   }
 
-  void signInGoogle() async {
-    await SignInLogic().signInWithGoogle();
+  void errorSnackbar({@required String msg}) {
+    return Get.snackbar(Strings.errorHint, '$msg',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colores.error,
+        colorText: Colors.white,
+        duration: Duration(seconds: 5));
   }
 
   @override

@@ -1,15 +1,26 @@
 class Strings {
-  static String appName = 'Kmello';
+  static String appName = 'Wicka';
   static String slogan = 'La solución está cerca';
   static String signatureEncIdeas = 'By Encoding Ideas';
 
   static String name = 'Nombre';
   static String dni = 'Cédula';
   static String email = 'Email';
+  static String password = 'Contraseña';
   static String phone = 'Celular';
+  //login
+  static String signIn = 'Iniciar Sesión';
+  static String forgetPass = 'Olvidaste tu contraseña?';
+  static String enter = 'Ingresar';
+  static String notYetAccount = 'Aún no tienes cuenta? ';
+  static String register = 'Registrate';
   //errors
+  static String errorHint = 'Error';
   static String incompleteStepError =
       'Completa el paso actual para poder continuar';
+  static String emailBadFormat = 'El email ingresado es invalido.';
+  static String requiredFields = 'Por favor complete el formulario.';
+  static String continueGoogle = 'Continuar con Google';
 
   //actions
   static String accept = 'Aceptar';
