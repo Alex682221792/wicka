@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wicka/resources/values/colors.dart';
 import 'package:wicka/resources/values/strings.dart';
-import 'package:wicka/view/pages/HomeScreen.dart';
-import 'package:wicka/view/pages/LoginScreen.dart';
-import 'package:wicka/view/pages/SignUpScreen.dart';
-import 'package:wicka/view/pages/WizardWorkerScreen.dart';
+
 import 'view/pages/SplashScreen.dart';
 
 void main() {
@@ -33,9 +30,8 @@ class MyApp extends StatelessWidget {
             return Text("Error");
           }
 
-          // Once complete, show your application
           if (snapshot.connectionState == ConnectionState.done) {
-            return LoginScreen();
+            return SplashScreen();
           }
 
           // Otherwise, show something whilst waiting for initialization to complete

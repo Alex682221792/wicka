@@ -31,7 +31,8 @@ class SignInLogic {
     });
   }
 
-  Future<fauth.User> signInWithGoogle() async {
+  void signInWithGoogle(
+      VoidCallback onSuccess, VoidCallback onFailure) async {
     GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
 
     GoogleSignInAuthentication googleSignInAuthentication =
@@ -48,20 +49,26 @@ class SignInLogic {
 
     assert(!_user.isAnonymous);
 
-    assert(await _user.getIdToken() != null);
+    var token = await _user.getIdToken();
+    assert(token != null);
 
     fauth.User currentUser = _auth.currentUser;
 
     assert(_user.uid == currentUser.uid);
 
-    print("User Name: ${_user.displayName}");
-    print("User Email ${_user.email}");
     User user = User(
-        email: currentUser.email,
-        name: currentUser.displayName,
+        id: _user.uid,
+        email: _user.email,
+        name: _user.displayName,
         isActive: true,
-        photo: currentUser.photoURL);
-    UserAPI().createByOAuth(user);
-    return _user;
+        photo: _user.photoURL);
+    SessionUserSP().setToken(token);
+    var savedUser = await UserAPI().createByOAuth(user);
+    if(savedUser != null){
+      SessionUserSP().setLoggedUser(savedUser);
+      onSuccess();
+    } else {
+      onFailure();
+    }
   }
 }

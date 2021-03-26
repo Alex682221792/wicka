@@ -7,7 +7,7 @@ import 'package:wicka/logic/firebase/Auth.dart';
 import 'package:http/http.dart' as http;
 
 class BaseRouteAPI {
-  final String baseUrl = 'http://192.168.0.164:3000/v1/foos/';
+  final String baseUrl = 'http://192.168.0.164:3000/';
   String apiName;
 
   @protected
@@ -37,7 +37,8 @@ class BaseRouteAPI {
       return this.handleResponse(response);
     } on TimeoutException catch (_) {
       return this.badResponse();
-    } on SocketException catch (_) {
+    } on Exception catch (error) {
+      print(error);
       return this.badResponse();
     }
   }

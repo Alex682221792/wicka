@@ -10,7 +10,7 @@ class UserAPI extends BaseRouteAPI {
 
   Future<User> createByOAuth(User client) async {
     var response = await this
-        .postData('/create-by-oauth', bodyData: json.encode(client.toJson()));
+        .postData('create-by-oauth', bodyData: json.encode(client.toJson()));
     if (response.success) {
       return User.fromJson(json.decode(response.result));
     }
@@ -19,7 +19,7 @@ class UserAPI extends BaseRouteAPI {
 
   Future<User> createAccount(User client) async {
     var response = await this
-        .postData('/create-account', bodyData: json.encode(client.toJson()));
+        .postData('create', bodyData: json.encode(client.toJson()));
     if (response.success) {
       return User.fromJson(json.decode(response.result));
     }
@@ -27,7 +27,7 @@ class UserAPI extends BaseRouteAPI {
   }
 
   Future<User> getProfile() async {
-    var response = await this.getData('/profile', headers: <String, String>{
+    var response = await this.getData('profile', headers: <String, String>{
       'authorization': await SessionUserSP().getToken(),
     });
     if (response.success) {

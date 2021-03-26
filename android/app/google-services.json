@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "963169733788-v9o9i50vhgkp21l1lb9kehdmi4cm1n8e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.encodingideas.wicka",
+            "certificate_hash": "5f0a79388eb61d077b75517a6bc57326a1d0dbc7"
+          }
+        },
+        {
           "client_id": "963169733788-jteh389390lcmm92tqlm4ugva3i6ifii.apps.googleusercontent.com",
           "client_type": 3
         }

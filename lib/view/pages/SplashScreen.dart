@@ -5,6 +5,8 @@ import 'package:wicka/resources/styles/decorations.dart';
 import 'package:wicka/resources/styles/text-styles.dart';
 import 'package:wicka/resources/values/colors.dart';
 import 'package:wicka/resources/values/strings.dart';
+import 'package:wicka/shared_preferences/SessionUserSP.dart';
+import 'package:wicka/view/pages/HomeScreen.dart';
 import 'package:wicka/view/pages/LoginScreen.dart';
 import '../widgets/WaveWidget.dart';
 
@@ -71,9 +73,13 @@ class SplashScreen extends StatelessWidget {
     );
   }
 
-  void goToLogin() {
-    Future.delayed(const Duration(seconds: 2), () {
-      Get.off(LoginScreen());
+  void goToLogin(){
+    Future.delayed(const Duration(seconds: 2), () async {
+      if(await SessionUserSP().isLoggedUser()){
+        Get.off(HomeScreen());
+      } else {
+        Get.off(LoginScreen());
+      }
     });
   }
 }

@@ -8,6 +8,9 @@ class Strings {
   static String email = 'Email';
   static String password = 'Contraseña';
   static String phone = 'Celular';
+  //top bar
+  static String greeting = 'buen día';
+
   //login
   static String signIn = 'Iniciar Sesión';
   static String forgetPass = 'Olvidaste tu contraseña?';

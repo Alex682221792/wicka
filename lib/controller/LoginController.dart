@@ -54,7 +54,14 @@ class LoginController extends BaseController {
   }
 
   void signInGoogle() async {
-    await SignInLogic().signInWithGoogle();
+    await SignInLogic().signInWithGoogle(() async {
+      Get.back();
+      Get.off(HomeScreen());
+      errorSnackbar(msg: "Logged");
+    }, () {
+      Get.back();
+      errorSnackbar(msg: Strings.errorHint);
+    });
   }
 
   @override
