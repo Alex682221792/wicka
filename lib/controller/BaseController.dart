@@ -12,4 +12,13 @@ class BaseController extends GetxController {
         colorText: Colors.white,
         duration: Duration(seconds: 5));
   }
+
+  void showDialog(){
+    Get.dialog(Center(child: CircularProgressIndicator()),
+        barrierDismissible: false);
+  }
+
+  void hideDialog(){
+    Get.back();
+  }
 }

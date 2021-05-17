@@ -1,12 +1,13 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:wicka/model/Category.dart';
+import 'package:wicka/logic/base/Constants.dart';
+import 'package:wicka/model/Catalog.dart';
 import 'package:wicka/resources/styles/text-styles.dart';
 import 'package:wicka/resources/values/colors.dart';
 
 class NormalCard extends StatelessWidget {
-  Category category;
+  Catalog category;
 
   NormalCard(this.category);
 
@@ -32,11 +33,19 @@ class NormalCard extends StatelessWidget {
                 children: <Widget>[
                   ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    child: FadeInImage.assetNetwork(
-                        placeholder: 'assets/logo_wicka.png',
-                        width: MediaQuery.of(context).size.width * 0.4,
-                        fit: BoxFit.cover,
-                        image: this.category.url),
+                    child: Hero(
+                      child: FadeInImage.assetNetwork(
+                          placeholder: 'assets/logo_wicka.png',
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          fit: BoxFit.cover,
+                          image: this
+                              .category
+                              .config
+                              .firstWhere((element) =>
+                          element.label == Constants.urlParam)
+                              .value),
+                      tag: category.id,
+                    ),
                   ),
                   Container(
                       decoration: BoxDecoration(
@@ -66,7 +75,7 @@ class NormalCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Text(this.category.name, style: TextStyles.headerStyle),
-                Text(this.category.details.toString())
+                Text(this.category.detail.toString())
               ],
             ),
           ),

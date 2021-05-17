@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:wicka/model/embedded/Location.dart';
 
 class ValidatorsUtils {
   static bool areFilledFields(List<TextEditingController> fields) {
@@ -10,4 +11,9 @@ class ValidatorsUtils {
     });
     return flag;
   }
+
+  static bool isValidLocation(Location location) {
+    return location.latitude != null && location.longitude != null;
+  }
+
 }

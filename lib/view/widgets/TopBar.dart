@@ -14,12 +14,13 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<User>(
+      initialData: User(name:"", email: ""),
       future: SessionUserSP().getLoggedUser(),
       builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
         return Positioned(
           width: MediaQuery.of(context).size.width * 0.95,
           height: 40.0,
-          top: 40.0,
+          //top: 40.0,
           left: MediaQuery.of(context).size.width * 0.025,
           child: Container(
               width: MediaQuery.of(context).size.width * 0.9,

@@ -7,23 +7,23 @@ import 'package:wicka/logic/firebase/Auth.dart';
 import 'package:http/http.dart' as http;
 
 class BaseRouteAPI {
-  final String baseUrl = 'http://192.168.0.164:3000/';
+  final String baseUrl = 'http://10.20.250.44:3000/';
+  // final String baseUrl = 'http://192.168.0.145:3000/';
   String apiName;
 
   @protected
   Future<HttpResponse> getData(String urlEnd,
       {Map<String, String> headers}) async {
-    Auth().checkExpiredDateToken();
-    print("prev request " + " ${this._getUrl()}$urlEnd");
-    final response = await http.get('${this._getUrl()}$urlEnd',
+    await Auth().checkExpiredDateToken();
+    final response = await http.get(Uri.parse('${this._getUrl()}$urlEnd'),
         headers: this.getHeaders(headers));
     return this.handleResponse(response);
   }
 
   Future<HttpResponse> deleteData(String urlEnd,
       {Map<String, String> headers}) async {
-    Auth().checkExpiredDateToken();
-    final response = await http.delete('${this._getUrl()}$urlEnd',
+    await Auth().checkExpiredDateToken();
+    final response = await http.delete(Uri.parse('${this._getUrl()}$urlEnd'),
         headers: this.getHeaders(headers));
     return this.handleResponse(response);
   }
@@ -31,8 +31,8 @@ class BaseRouteAPI {
   Future<HttpResponse> postData(String urlEnd,
       {Map<String, String> headers, dynamic bodyData}) async {
     try {
-      Auth().checkExpiredDateToken();
-      final response = await http.post('${this._getUrl()}$urlEnd',
+      await Auth().checkExpiredDateToken();
+      final response = await http.post(Uri.parse('${this._getUrl()}$urlEnd'),
           headers: this.getHeaders(headers), body: bodyData);
       return this.handleResponse(response);
     } on TimeoutException catch (_) {
@@ -45,8 +45,8 @@ class BaseRouteAPI {
 
   Future<HttpResponse> putData(String urlEnd,
       {Map<String, String> headers, dynamic bodyData}) async {
-    Auth().checkExpiredDateToken();
-    final response = await http.put('${this._getUrl()}$urlEnd',
+    await Auth().checkExpiredDateToken();
+    final response = await http.put(Uri.parse('${this._getUrl()}$urlEnd'),
         headers: this.getHeaders(headers), body: bodyData);
     return this.handleResponse(response);
   }

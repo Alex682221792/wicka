@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wicka/resources/values/colors.dart';
+import 'package:wicka/resources/values/dimens.dart';
 
 class TextStyles {
   static TextStyle signatureEncIdeasStyle = TextStyle(
@@ -13,6 +14,12 @@ class TextStyles {
       color: Colores.tertiary,
       fontSize: 22.0,
       fontWeight: FontWeight.w500,
+      fontFamily: "Montserrat");
+
+  static TextStyle primaryTextBold = TextStyle(
+      color: Colores.primary,
+      fontSize: Dimens.normalFont,
+      fontWeight: FontWeight.w700,
       fontFamily: "Montserrat");
 
   static TextStyle sloganStyle = TextStyle(
@@ -44,6 +51,11 @@ class TextStyles {
 
   static TextStyle mainGradientButtonStyle =
       TextStyle(color: Colors.white, fontSize: 15.0, fontFamily: "Montserrat");
+
+  static TextStyle normalWhiteText = TextStyle(
+      color: Colors.white,
+      fontSize: Dimens.normalFont,
+      fontFamily: "Montserrat");
 
   static TextStyle headerStyle = TextStyle(
       color: Colores.tertiary,
@@ -102,4 +114,7 @@ class TextStyles {
       color: Colores.primaryBackground,
       fontSize: 17.0,
       fontFamily: "Montserrat");
+
+  static TextStyle negativeTextStyle =
+      TextStyle(color: Colores.error, fontSize: 17.0, fontFamily: "Montserrat");
 }

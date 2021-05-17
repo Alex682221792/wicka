@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wicka/model/Category.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wicka/enums/StatusPostEnum.dart';
+import 'package:wicka/model/Catalog.dart';
+import 'package:wicka/model/Order.dart';
 import 'package:wicka/resources/styles/decorations.dart';
 import 'package:wicka/resources/styles/text-styles.dart';
 import 'package:wicka/resources/values/colors.dart';
-import 'package:wicka/view/widgets/HorizontalSlider.dart';
+import 'package:wicka/resources/values/dimens.dart';
+import 'package:wicka/view/widgets/DailySuggestion.dart';
 import 'package:wicka/view/widgets/NormalCard.dart';
 
 import '../../resources/styles/gradients.dart';
@@ -21,15 +25,6 @@ class Orders extends StatelessWidget {
         backgroundColor: Colores.primaryBackground,
         body: Stack(
           children: [
-            ClipPath(
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.5,
-                color: GeneralUtils().getRandomColorWithAlpha(alpha: 0.1),
-                child: SizedBox(),
-              ),
-              clipper: ClipperSignUp(),
-            ),
             Column(
               children: [
                 Container(
@@ -42,9 +37,18 @@ class Orders extends StatelessWidget {
                     child: ListView(
                   padding: EdgeInsets.zero,
                   children: [
-                    this.rowValue("label", "statusvalue", "Esperando"),
-                    this.rowValue("label", "status", "en camino"),
-                    this.rowValue("label", "Status", "En camino")
+                    this.rowValue(Order(
+                        date: "25 Oct 2021",
+                        status: StatusOrderEnum.PENDING,
+                        number: "39858")),
+                    this.rowValue(Order(
+                        date: "02 Abr 2021",
+                        status: StatusOrderEnum.ON_THE_WAY,
+                        number: "2858")),
+                    this.rowValue(Order(
+                        date: "02 Abr 2021",
+                        status: StatusOrderEnum.COMPLETED,
+                        number: "2858"))
                   ],
                 ))
               ],
@@ -53,25 +57,42 @@ class Orders extends StatelessWidget {
         ));
   }
 
-  Widget rowValue(String label, String value, String status) {
+  Widget rowValue(Order order) {
     return Card(
+        color: Colores.alternativeBackground,
         margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-        child: Padding(
-            padding: EdgeInsets.all(10.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(Dimens.radiusGeneral),
+        ),
+        child: IntrinsicHeight(
             child: Row(
-              children: [
-                Expanded(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+                   padding: EdgeInsets.all(10.0),
+                child: Center(
+              child: StatusOrderHelper().getIcon(order.status),
+            )),
+            Expanded(
+                child: Padding(
+                    padding: EdgeInsets.all(10.0),
                     child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(label, style: TextStyles.headerStyle),
-                    Text(value, style: TextStyles.subHeaderStyle)
-                  ],
-                )),
-                Container(
-                    alignment: Alignment.centerRight,
-                    child: Text(status, style: TextStyles.subHeaderStyle))
-              ],
-            )));
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Orden #${order.number}",
+                            style: TextStyles.headerStyle),
+                        Text(StatusOrderHelper().getVal(order.status),
+                            style: TextStyles.subHeaderStyle)
+                      ],
+                    ))),
+            Column(children: [
+              Container(
+                  padding: EdgeInsets.all(5.0),
+                  decoration: Decorations.dateOrderStyle,
+                  alignment: Alignment.centerRight,
+                  child: Text(order.date, style: TextStyles.normalWhiteText))
+            ])
+          ],
+        )));
   }
 }

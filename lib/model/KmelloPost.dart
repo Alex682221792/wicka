@@ -9,7 +9,7 @@ class KmelloPost {
   DateTime startDate;
   String serviceId;
   double budget;
-  StatusPostEnum status;
+  StatusOrderEnum status;
 
   KmelloPost(
       {this.id,

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wicka/logic/firebase/Auth.dart';
 import 'package:wicka/model/User.dart';
 
 class SessionUserSP {
@@ -25,7 +26,7 @@ class SessionUserSP {
 
   Future<bool> setToken(String token) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    return await prefs.setString(_tokenKey, token);
+    return prefs.setString(_tokenKey, token);
   }
 
   Future<DateTime> getExpireDateToken() async {
@@ -37,7 +38,13 @@ class SessionUserSP {
   }
 
   Future<bool> setExpiredDateToken() async {
-    String expiredDateToken = DateTime.now().toString();
+    String expiredDateToken = DateTime.now().add(Duration(minutes: 59)).toString();
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return await prefs.setString(_expiredDateTokenKey, expiredDateToken);
+  }
+
+  Future<bool> expiredDateToken() async {
+    String expiredDateToken = DateTime.now().subtract(Duration(minutes: 59)).toString();
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return await prefs.setString(_expiredDateTokenKey, expiredDateToken);
   }
@@ -50,5 +57,9 @@ class SessionUserSP {
       print(e);
       return false;
     }
+  }
+
+  logout(){
+    Auth().signOut();
   }
 }

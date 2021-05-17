@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:wicka/controller/LoginController.dart';
 import 'package:wicka/resources/styles/decorations.dart';
@@ -11,14 +11,12 @@ import 'package:wicka/resources/values/strings.dart';
 import 'package:wicka/view/pages/SignUpScreen.dart';
 import 'package:wicka/view/widgets/ClipperSignIn.dart';
 import 'package:wicka/view/widgets/LargeTextButton.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginScreen extends StatelessWidget {
   final LoginController _loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
 
     return Scaffold(

@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:wicka/model/Product.dart';
 import 'package:wicka/resources/styles/decorations.dart';
 import 'package:wicka/resources/styles/text-styles.dart';
@@ -16,94 +15,98 @@ class ProductViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(height: MediaQuery.of(context).size.height),
-        this.circle(context, 0.975, 0.35),
-        this.circle(context, 0.8, 0.35),
-        Positioned(
-          child: FadeInImage.assetNetwork(
-              placeholder: 'assets/logo_wicka.png',
-              width: MediaQuery.of(context).size.width * 0.5,
-              height: MediaQuery.of(context).size.height * 0.3,
-              image: this.product.photo),
-          left: MediaQuery.of(context).size.width * 0.25,
-          top: (MediaQuery.of(context).size.height * 0.2) -
-              (MediaQuery.of(context).size.width * 0.0),
-        ),
-        SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 10.0),
-                Text(product.name, style: TextStyles.headerStyle),
-                Text(product.description, style: TextStyles.normalStyle),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.45),
-                Text("\$" + product.price.toString(),
-                    style: TextStyles.productPriceTitleStyle),
-                SizedBox(height: 20.0),
-                Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 3.0),
-                            child: Text("Ingredientes",
-                                style: TextStyles.normalStyle)),
-                        Row(
-                          children: [
-                            this.ingredientsList(context),
-                            Container(
-                              height: 50.0,
-                              width: 50.0,
-                              margin: EdgeInsets.symmetric(horizontal: 5.0),
-                              padding: EdgeInsets.symmetric(vertical: 6.0),
-                              decoration: Decorations.counterBarShadow,
-                              child: GestureDetector(
-                                  onTap: () {},
-                                  child: Column(
-                                    children: [
-                                      Icon(Icons.add),
-                                      Text("Extra",
-                                          style: TextStyles.subHeaderStyle)
-                                    ],
-                                  )),
-                            ),
-                            Container(
-                              height: 50.0,
-                              width: 50.0,
-                              margin: EdgeInsets.symmetric(horizontal: 5.0),
-                              padding: EdgeInsets.symmetric(vertical: 6.0),
-                              decoration: Decorations.addToCarButtonShadow,
-                              child: GestureDetector(
-                                  onTap: () {},
-                                  child: Column(
-                                    children: [
-                                      Icon(Icons.add_shopping_cart,
-                                          color: Colores.primaryBackground),
-                                      Text("Listo",
-                                          style: TextStyles.addButtonStyle)
-                                    ],
-                                  )),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Center(
-                            child: Text("Extras: \$0.10",
-                                style: TextStyles.headerStyle))
-                      ],
-                    )),
-              ],
-            )),
-        this.counterPad(context)
-      ],
-    );
+    return Scaffold(
+        backgroundColor: Colores.primaryBackground,
+        body: SafeArea(
+          child: Stack(
+            children: [
+              SizedBox(height: MediaQuery.of(context).size.height),
+              this.circle(context, 0.975, 0.35),
+              this.circle(context, 0.8, 0.35),
+              Positioned(
+                child: FadeInImage.assetNetwork(
+                    placeholder: 'assets/logo_wicka.png',
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    image: this.product.photo),
+                left: MediaQuery.of(context).size.width * 0.25,
+                top: (MediaQuery.of(context).size.height * 0.2) -
+                    (MediaQuery.of(context).size.width * 0.0),
+              ),
+              SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 10.0),
+                      Text(product.name, style: TextStyles.headerStyle),
+                      Text(product.description, style: TextStyles.normalStyle),
+                      SizedBox(height: MediaQuery.of(context).size.height * 0.45),
+                      Text("\$" + product.price.toString(),
+                          style: TextStyles.productPriceTitleStyle),
+                      SizedBox(height: 20.0),
+                      Container(
+                          alignment: Alignment.topLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 10.0, vertical: 3.0),
+                                  child: Text("Ingredientes",
+                                      style: TextStyles.normalStyle)),
+                              Row(
+                                children: [
+                                  this.ingredientsList(context),
+                                  Container(
+                                    height: 50.0,
+                                    width: 50.0,
+                                    margin: EdgeInsets.symmetric(horizontal: 5.0),
+                                    padding: EdgeInsets.symmetric(vertical: 6.0),
+                                    decoration: Decorations.counterBarShadow,
+                                    child: GestureDetector(
+                                        onTap: () {},
+                                        child: Column(
+                                          children: [
+                                            Icon(Icons.add),
+                                            Text("Extra",
+                                                style: TextStyles.subHeaderStyle)
+                                          ],
+                                        )),
+                                  ),
+                                  Container(
+                                    height: 50.0,
+                                    width: 50.0,
+                                    margin: EdgeInsets.symmetric(horizontal: 5.0),
+                                    padding: EdgeInsets.symmetric(vertical: 6.0),
+                                    decoration: Decorations.addToCarButtonShadow,
+                                    child: GestureDetector(
+                                        onTap: () {},
+                                        child: Column(
+                                          children: [
+                                            Icon(Icons.add_shopping_cart,
+                                                color: Colores.primaryBackground),
+                                            Text("Listo",
+                                                style: TextStyles.addButtonStyle)
+                                          ],
+                                        )),
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Center(
+                                  child: Text("Extras: \$0.10",
+                                      style: TextStyles.headerStyle))
+                            ],
+                          )),
+                    ],
+                  )),
+              this.counterPad(context)
+            ],
+          )
+        ));
   }
 
   Widget ingredientsList(BuildContext context) {
@@ -139,8 +142,7 @@ class ProductViewer extends StatelessWidget {
                         offset: Offset(0.0, 0.0),
                         blurRadius: 2.0)
                   ],
-                  color: Color((Random().nextDouble() * 0xFFFFFF).toInt())
-                      ,
+                  color: Color((Random().nextDouble() * 0xFFFFFF).toInt()),
                   borderRadius: BorderRadius.all(Radius.circular(10.0))),
               width: 90.0,
               height: 90.0,

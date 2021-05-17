@@ -10,13 +10,12 @@ import 'package:wicka/resources/values/colors.dart';
 import 'package:wicka/view/widgets/CircleButton.dart';
 
 class BottomTabBar extends StatelessWidget {
-  MainTabBarController controller = Get.put(MainTabBarController());
+  MainTabBarController controller = Get.find();
 
   BottomTabBar({this.controller});
 
   @override
   Widget build(BuildContext context) {
-    // controller.loadMenu();
     return Positioned(
         height: 60.0,
         bottom: 5.0,
@@ -49,10 +48,12 @@ class BottomTabBar extends StatelessWidget {
           width: MediaQuery.of(context).size.width / controller.items.length,
           child: CircleButton(
               size: 60.0,
-              onPress: () {},
+              onPress: () {
+                this.controller.selectOption(item);
+              },
               colorButton: Colores.primary,
-              colorIcon: Colores.primary,
-              icon: LogoKmello.logo_kmello));
+              colorIcon: Colores.primaryBackground,
+              icon: item.icon));
     } else {
       return Align(
           alignment: Alignment.bottomCenter,

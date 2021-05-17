@@ -5,7 +5,6 @@ import 'package:wicka/model/User.dart';
 import 'package:wicka/shared_preferences/SessionUserSP.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fauth;
 import 'package:google_sign_in/google_sign_in.dart';
-// import 'package:package_info/package_info.dart';
 
 class SignInLogic {
   fauth.User _user;
@@ -62,10 +61,11 @@ class SignInLogic {
         name: _user.displayName,
         isActive: true,
         photo: _user.photoURL);
-    SessionUserSP().setToken(token);
+    await SessionUserSP().setToken(token);
     var savedUser = await UserAPI().createByOAuth(user);
     if(savedUser != null){
       SessionUserSP().setLoggedUser(savedUser);
+      SessionUserSP().setExpiredDateToken();
       onSuccess();
     } else {
       onFailure();

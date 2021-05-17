@@ -8,11 +8,11 @@ class Colores {
   static Color primary = Colors.orange[600];
   static Color secondary = Colors.orange[300];
   static Color tertiary = Colors.grey[600];
-//  static Color tertiary = Colors.grey[300];
 
   static Color active = Colors.orange[300];
   static Color inactive = Colors.grey;
-
+  static Color customBlue = Color.fromRGBO(30, 168, 203, 1.0);
+  static Color customGreen = Color.fromRGBO(56, 162, 49, 1.0);
   static Color border = Colors.grey[400];
   static Color error = Colors.redAccent;
 }

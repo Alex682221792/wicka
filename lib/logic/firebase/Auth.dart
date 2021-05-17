@@ -23,7 +23,7 @@ class Auth implements BaseAuth {
     var tokenResult = await user.getIdToken();
     var sessionUser = SessionUserSP();
     sessionUser.setExpiredDateToken();
-    sessionUser.setToken(tokenResult);
+    await sessionUser.setToken(tokenResult);
     return true;
   }
 
@@ -40,13 +40,14 @@ class Auth implements BaseAuth {
 
   Future<bool> checkExpiredDateToken() async {
     var sessionUser = SessionUserSP();
+    await sessionUser.expiredDateToken();
     var expiredDate = await sessionUser.getExpireDateToken();
     if (this._firebaseAuth.currentUser != null && expiredDate != null) {
-      if (expiredDate.isAfter(DateTime.now())) {
+      if (expiredDate.isBefore(DateTime.now())) {
         var user = this._firebaseAuth.currentUser;
-        var tokenResult = await user.getIdToken();
-        sessionUser.setExpiredDateToken();
-        sessionUser.setToken(tokenResult);
+        var tokenResult = await user.getIdToken(true);
+        var wasUpdated = await sessionUser.setExpiredDateToken();
+        wasUpdated = await sessionUser.setToken(tokenResult);
       }
     }
     return true;

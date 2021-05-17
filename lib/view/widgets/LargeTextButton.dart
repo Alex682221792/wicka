@@ -30,13 +30,18 @@ class LargeTextButton extends StatelessWidget {
     }
     ;
     return Container(
+      color: Colors.transparent,
         height: Dimens.lgButtonHeight,
         width: Dimens.lgButtonWidth(context),
         margin: EdgeInsets.all(2.0),
         child: RaisedButton(
+          elevation: this.buttonStyle == ButtonStyleEnum.FLAT? 0 : 2,
+          disabledElevation: this.buttonStyle == ButtonStyleEnum.FLAT? 0 : 2,
           onPressed: onPress,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+          shape: this.buttonStyle == ButtonStyleEnum.FLAT
+              ? null
+              : RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(80.0)),
           padding: EdgeInsets.all(0.0),
           child: Ink(
             decoration: chosenDecoration,

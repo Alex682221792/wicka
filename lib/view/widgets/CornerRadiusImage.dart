@@ -5,8 +5,9 @@ class CornerRadiusImage extends StatelessWidget {
   String _url;
   double _radiusCorner;
   double _size;
+  bool ableOnTap;
 
-  CornerRadiusImage({String url, double radiusCorner, double size}) {
+  CornerRadiusImage({String url, double radiusCorner, double size, this.ableOnTap = true}) {
     this._url = url;
     this._radiusCorner = radiusCorner;
     this._size = size;
@@ -27,7 +28,9 @@ class CornerRadiusImage extends StatelessWidget {
                       width: this._size,
                       height: this._size))),
           onTap: () {
-            this.viewImage(context);
+            if(ableOnTap) {
+              this.viewImage(context);
+            }
           },
         ));
   }

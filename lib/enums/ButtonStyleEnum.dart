@@ -1,4 +1,4 @@
-enum ButtonStyleEnum { GRADIENT, OUTLINE, SECONDARY }
+enum ButtonStyleEnum { GRADIENT, OUTLINE, SECONDARY, FLAT }
 
 class ButtonStyleHelper {
   int getVal(ButtonStyleEnum btnStyle) {

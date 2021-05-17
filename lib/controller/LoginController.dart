@@ -1,9 +1,8 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:wicka/api/services/UserAPI.dart';
-import 'package:wicka/controller/BaseContoller.dart';
+import 'package:wicka/controller/BaseController.dart';
 import 'package:wicka/logic/SignInLogic.dart';
-import 'package:wicka/model/User.dart';
 import 'package:wicka/resources/values/strings.dart';
 import 'package:wicka/shared_preferences/SessionUserSP.dart';
 import 'package:wicka/utils/ValidatorsUtils.dart';

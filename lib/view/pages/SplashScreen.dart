@@ -13,8 +13,9 @@ import '../widgets/WaveWidget.dart';
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print("splash build");
     final size = MediaQuery.of(context).size;
-    final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
+    // final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
     this.goToLogin();
 
     return Scaffold(
