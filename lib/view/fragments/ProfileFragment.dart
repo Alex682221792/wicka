@@ -24,7 +24,7 @@ class ProfileFragment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Scaffold(body: SingleChildScrollView(
       child: FutureBuilder<User>(
           future: SessionUserSP().getLoggedUser(),
           builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
@@ -49,7 +49,7 @@ class ProfileFragment extends StatelessWidget {
                 SizedBox(height: 5),
                 Container(
                   padding:
-                      EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                  EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                   width: MediaQuery.of(context).size.width,
                   color: Colores.alternativeBackground,
                   child: Column(
@@ -67,7 +67,7 @@ class ProfileFragment extends StatelessWidget {
                 GestureDetector(
                   child: Container(
                     margin:
-                        EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                    EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                     height: 50.0,
                     padding: EdgeInsets.all(10.0),
                     decoration: Decorations.getCustomDecoration(
@@ -83,7 +83,7 @@ class ProfileFragment extends StatelessWidget {
                         //Container(child: Text("ALEXANDER NUNEZ B", style: TextStyles.superTitleStyle), width: (MediaQuery.of(context).size.width - 80.0), margin: EdgeInsets.symmetric(vertical: 10.0)),
                         Container(
                             child:
-                                Text("07/22", style: TextStyles.subHeaderStyle),
+                            Text("07/22", style: TextStyles.subHeaderStyle),
                             width: (80.0),
                             alignment: Alignment.centerRight)
                       ],
@@ -103,13 +103,13 @@ class ProfileFragment extends StatelessWidget {
                 SizedBox(height: 20),
                 SizedBox(
                     child:
-                        Text(Strings.myAddress, style: TextStyles.headerStyle),
+                    Text(Strings.myAddress, style: TextStyles.headerStyle),
                     width: MediaQuery.of(context).size.width - 10.0),
                 AddressListFragment()
               ],
             );
           }),
-    );
+    ));
   }
 
   void openPaymentMethodScreen(BuildContext context) {

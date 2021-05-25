@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:wicka/api/services/CatalogAPI.dart';
 import 'package:wicka/api/services/ProductAPI.dart';
+import 'package:wicka/api/services/ProductIngredientsAPI.dart';
 import 'package:wicka/controller/BaseController.dart';
 import 'package:wicka/logic/base/Constants.dart';
 import 'package:wicka/model/Catalog.dart';
 import 'package:wicka/model/Product.dart';
 import 'package:get/get.dart';
+import 'package:wicka/model/ProductIngredients.dart';
 
 class FinderController extends BaseController {
   var isSearchMode = false.obs;
@@ -13,6 +15,11 @@ class FinderController extends BaseController {
   Future<List<Catalog>> getProductTypes() async {
     return await CatalogAPI()
         .getCatalogBySuccessorId(Constants.productTypeUUID);
+  }
+
+  Future<List<ProductIngredients>> getProductIngredients(String productId) async {
+    return await ProductIngredientsAPI()
+        .getIngredientsByProductId(productId);
   }
 
   Future<List<Product>> getDailySuggestion() async {

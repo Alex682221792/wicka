@@ -102,7 +102,10 @@ class TextStyles {
       fontFamily: "Montserrat");
 
   static TextStyle normalStyle = TextStyle(
-      color: Colores.tertiary, fontSize: 17.0, fontFamily: "Montserrat");
+      color: Colores.tertiary, fontSize: Dimens.normalFont, fontFamily: "Montserrat");
+
+  static TextStyle largeStyle = TextStyle(
+      color: Colores.tertiary, fontSize: Dimens.largeFont, fontFamily: "Montserrat");
 
   static TextStyle whiteTextStyle = TextStyle(
       color: Colores.primaryBackground,

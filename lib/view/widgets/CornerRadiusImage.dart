@@ -23,10 +23,11 @@ class CornerRadiusImage extends StatelessWidget {
                   BorderRadius.all(Radius.circular(this._radiusCorner)),
               child: Hero(
                   tag: "image_${this._url}",
-                  child: Image.network(this._url,
-                      fit: BoxFit.cover,
+                  child: FadeInImage.assetNetwork(fit: BoxFit.cover,
+                      placeholder: 'assets/logo_wicka.png',
                       width: this._size,
-                      height: this._size))),
+                      height: this._size,
+                      image: this._url))),
           onTap: () {
             if(ableOnTap) {
               this.viewImage(context);

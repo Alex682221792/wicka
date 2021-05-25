@@ -7,6 +7,7 @@ class Dimens {
   static double radiusGeneral = 10;
   static double spaceBetweenFields = 20;
   static double lgButtonHeight = 40;
+  static double largeFont = 17;
   static double normalFont = 14;
   static double smallFont = 10;
   static double lgButtonWidth(BuildContext context) {

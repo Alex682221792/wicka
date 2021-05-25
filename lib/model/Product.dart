@@ -16,7 +16,6 @@ class Product {
       this.price,
       this.type});
 
-
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
         id: json['id'],
